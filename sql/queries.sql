@@ -13,6 +13,7 @@ SELECT name, SUM(amount) FROM Ingredient GROUP BY name;
 
 SELECT * FROM Storage WHERE quantity < 1;
 
+
 SELECT * FROM Employee WHERE position = 'server';
 
 SELECT * FROM Customer WHERE cid IN (SELECT cid FROM Sales);
