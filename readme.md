@@ -10,4 +10,3 @@ then you can just visit 'http://localhost/' to get to the site.
 you can create a new database in the mysql admin panel, from XAMPP. There is a default database called 'test', or you can create a new one. Import the import.sql file into the database, then you can import sampledata1.sql.
 
 i named my db restaurant-test-1, if you use a different name change the $db variable in db_connect.php
-
