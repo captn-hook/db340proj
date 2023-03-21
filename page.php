@@ -32,7 +32,7 @@
                 <input type="submit" name="submit" value="Predefined Query 5">
             </form>
         </div>
-        <div class="column">
+        <div class="column" style="flex-shrink: 80%">
             <!-- right column -->
             <h2> Query Results </h2>
             <p name=result><p>
@@ -40,23 +40,6 @@
                 include 'db_connection.php';
 
                 $conn = OpenCon();
-
-                if(array_key_exists('submit',$_POST)){
-                    if ($result->num_rows > 0) {
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                            echo "name: " . $row["name"]. " - amount: " . $row["SUM(amount)"]. "<br>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }    
-                }
-
-                if (array_key_exists('query',$_POST)){
-                    $textbox = $_POST['query'];
-                }
-
-                $result = $conn->query($textbox);
 
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
@@ -78,7 +61,9 @@
                     echo "0 results";
                 }    
 
-                CloseCon($conn);
+
+                CloseCon($conn);             
+
             ?>
         </div>
     </div>

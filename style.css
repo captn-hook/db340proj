@@ -73,4 +73,14 @@ background-color: var(--bg2);
     padding: var(--padsmall);
     margin: var(--padsmall);
     box-sizing: border-box;
+    text-decoration: none;
+    border: var(--outline);
+    background-color: var(--bg2);
+    display: flex !important;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: var(--outline);
+  color: var(--bg2);
 }
