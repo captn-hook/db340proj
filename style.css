@@ -1,0 +1,77 @@
+/*palette*/
+:root {
+  --bg: rgb(208, 202, 202);
+  --bg2: rgb(255, 255, 255);
+  --outline: rgb(0, 0, 0);
+  --text: rgb(20, 20, 20);
+  --fontsize: 16px;
+  --fontfam: 'Roboto', sans-serif;
+  --padsmall: 3px;
+  --padlarge: 8px;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: var(--fontfam);
+    font-size: var(--fontsize);
+    color: var(--text);
+    margin: var(--padsmall);
+    padding: var(--padsmall);
+}
+
+.row {
+    display: flex;
+  }
+
+.column {
+flex-grow: 75%;
+flex-shrink: 50%;
+border: 1px solid var(--outline);
+margin: var(--padlarge);
+padding: var(--padlarge);
+background-color: var(--bg2);
+}
+
+.div1 {
+    background-color: var(--bg2);
+    border: 1px solid var(--outline);
+    margin: var(--padlarge);
+    padding: var(--padlarge);
+}
+
+.h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.textarea {
+    width: 150%;
+    height: 200%;
+    padding: var(--padsmall);
+    margin: var(--padsmall);
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
+.form {
+    width: 100%;
+    padding: var(--padsmall);
+    margin: var(--padsmall);
+    box-sizing: border-box;
+}
+
+.input {
+    width: 100%;
+    padding: var(--padsmall);
+    margin: var(--padsmall);
+    box-sizing: border-box;
+    border: 1px solid var(--outline);
+}
