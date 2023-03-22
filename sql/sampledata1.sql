@@ -2,7 +2,7 @@ INSERT INTO EMPLOYEE VALUES("E1", "John", "Deer", "Cook", 20.50, "M0");
 INSERT INTO EMPLOYEE VALUES("E2", "Jane", "Doe", "Cook", 20.50, "M0");
 INSERT INTO EMPLOYEE VALUES("E3", "Bart", "Ender", "Bartender", 16.00, "M0");
 INSERT INTO EMPLOYEE VALUES("E4", "Sally", "Servesalot", "Server", 13.50, "M0");
-INSERT INTO EMPLOYEE VALUES("E0", "Molly", "Managerface", "Manager", 26.50);
+INSERT INTO EMPLOYEE VALUES("E0", "Molly", "Managerface", "Manager", 26.50, NULL);
 
 INSERT INTO MANAGER VALUES("E0", "M0");
 
@@ -12,11 +12,11 @@ INSERT INTO CUSTOMER VALUES("C3", "Betty", "Crocker");
 INSERT INTO CUSTOMER VALUES("C4", "Martha", "Stewart");
 INSERT INTO CUSTOMER VALUES("C5", "Guy", "Fieri");
 
-INSERT INTO MENU_ITEM VALUES("D1", "Drink", "Mimosa");
-INSERT INTO MENU_ITEM VALUES("D2", "Drink", "Irish Coffee");
-INSERT INTO MENU_ITEM VALUES("F1", "Food", "Chicken & Waffles");
-INSERT INTO MENU_ITEM VALUES("F2", "Food", "Parfait");
-INSERT INTO MENU_ITEM VALUES("F3", "Food", "Breakfast Burrito");
+INSERT INTO MENU_ITEM VALUES("D1", "Drink", "Mimosa", 10);
+INSERT INTO MENU_ITEM VALUES("D2", "Drink", "Irish Coffee", 12);
+INSERT INTO MENU_ITEM VALUES("F1", "Food", "Chicken & Waffles", 15);
+INSERT INTO MENU_ITEM VALUES("F2", "Food", "Parfait", 10);
+INSERT INTO MENU_ITEM VALUES("F3", "Food", "Breakfast Burrito", 12);
 
 INSERT INTO INGREDIENT VALUES("I1", "3/21/2024", "Prosecco", 10);
 INSERT INTO INGREDIENT VALUES("I2", "3/21/2030", "Jameson", 4);
