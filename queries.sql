@@ -1,5 +1,5 @@
-SELECT I.name, S.quantity / I.amount FROM Ingredient I, Storage S WHERE I.name = S.name AND I.item LIKE '%burger%' GROUP BY I.name;
-SELECT * FROM Sales WHERE cid IN (SELECT cid FROM Customer WHERE name = 'Tom Hiddleston') AND item LIKE '%shake%';
-SELECT SUM(price) FROM Menu WHERE item IN (SELECT item FROM Ingredient WHERE name IN (SELECT name FROM Storage WHERE quantity > 0));
-SELECT I.name, SUM(I.amount) FROM Ingredient I GROUP BY I.name;
-SELECT * FROM Storage WHERE spoil_date = (SELECT MIN(spoil_date) FROM Storage);
+SELECT Item_name, Price FROM MENU_ITEM WHERE Price = (Select MAX(Price) FROM MENU_ITEM);
+SELECT Item_name FROM MENU_ITEM, MENU_ORDER WHERE Cid IN (SELECT Cid FROM CUSTOMER WHERE Fname = 'Guy'AND Lname = 'Fieri') AND MENU_ITEM.ItemID = MENU_ORDER.ItemID;
+SELECT Fname, Lname FROM EMPLOYEE, MENU_ORDER WHERE MENU_ORDER.Eid = EMPLOYEE.Eid AND MENU_ORDER.Cid = 'C4';
+SELECT Item_name, Ingredient_name FROM MENU_ITEM, INGREDIENT, MADE_OF WHERE MENU_ITEM.ItemID = MADE_OF.ItemID AND INGREDIENT.IngredientID = MADE_OF.IngredientID;
+SELECT * FROM Ingredient WHERE Expiration = (SELECT MIN(Expiration) FROM Ingredient);
