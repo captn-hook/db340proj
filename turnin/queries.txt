@@ -1,0 +1,97 @@
+SELECT I.name, S.quantity / I.amount FROM Ingredient I, Storage S WHERE I.name = S.name AND I.item LIKE '%burger%' GROUP BY I.name;
+
+Query Results
+name	beef
+S.quantity / I.amount	7
+name	bun
+S.quantity / I.amount	3.5
+name	cheese
+S.quantity / I.amount	69.99999895691873
+name	lettuce
+S.quantity / I.amount	69.99999895691873
+name	onion
+S.quantity / I.amount	69.99999895691873
+name	tomato
+S.quantity / I.amount	69.99999895691873
+
+SELECT * FROM Sales WHERE cid IN (SELECT cid FROM Customer WHERE name = 'Tom Hiddleston') AND item LIKE '%shake%';
+
+date	2023-01-1
+cid	3
+server	2
+item	chocolate shake
+
+SELECT SUM(price) FROM Menu WHERE item IN (SELECT item FROM Ingredient WHERE name IN (SELECT name FROM Storage WHERE quantity > 0));
+
+SUM(price)	41
+
+SELECT I.name, SUM(I.amount) FROM Ingredient I GROUP BY I.name;
+
+name	beef
+SUM(I.amount)	6
+name	bun
+SUM(I.amount)	7
+name	cheese
+SUM(I.amount)	0.6000000163912773
+name	chicken
+SUM(I.amount)	1
+name	chocolate
+SUM(I.amount)	0.10000000149011612
+name	ice cream
+SUM(I.amount)	2
+name	lettuce
+SUM(I.amount)	1.6000000163912773
+name	milk
+SUM(I.amount)	2
+name	oil
+SUM(I.amount)	0.10000000149011612
+name	onion
+SUM(I.amount)	1.6000000163912773
+name	potato
+SUM(I.amount)	1
+name	tomato
+SUM(I.amount)	1.6000000163912773
+name	vanilla
+SUM(I.amount)	0.10000000149011612
+
+SELECT * FROM Storage WHERE spoil_date = (SELECT MIN(spoil_date) FROM Storage);
+
+name	beef
+quantity	7
+spoil_date	2023-01-31
+name	bun
+quantity	7
+spoil_date	2023-01-15
+name	cheese
+quantity	7
+spoil_date	2023-01-12
+name	chicken
+quantity	10
+spoil_date	2023-01-02
+name	chocolate
+quantity	9
+spoil_date	2023-01-11
+name	ice cream
+quantity	9
+spoil_date	2023-01-12
+name	lettuce
+quantity	7
+spoil_date	2023-01-12
+name	milk
+quantity	9
+spoil_date	2023-01-2
+name	oil
+quantity	8
+spoil_date	2023-01-1
+name	onion
+quantity	7
+spoil_date	2023-01-
+name	potato
+quantity	8
+spoil_date	2023-01-3
+name	tomato
+quantity	7
+spoil_date	2023-01-2
+name	vanilla
+quantity	10
+spoil_date	2023-01-1
