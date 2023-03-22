@@ -40,3 +40,10 @@ CREATE TABLE SALES (
     item VARCHAR(30) NOT NULL REFERENCES MENU(item),
     PRIMARY KEY (date, cid, item)
 );
+
+CREATE TABLE RESERVATION (
+    date VARCHAR(8) NOT NULL,
+    time VARCHAR(5) NOT NULL,
+    cid INTEGER(10) REFERENCES CUSTOMER(cid),
+    PRIMARY KEY (date, time, cid)
+);

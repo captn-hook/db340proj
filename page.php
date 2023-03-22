@@ -63,8 +63,12 @@
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     } else {
-                        $result = $conn->query($sql);
-                        Output($result);               
+                        try {
+                            $result = $conn->query($sql);
+                            Output($result);               
+                        } catch (Exception $e) {
+                            echo "Error in query";
+                        }
                     }   
 
                     CloseCon($conn);   
