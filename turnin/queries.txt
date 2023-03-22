@@ -1,97 +1,59 @@
-SELECT I.name, S.quantity / I.amount FROM Ingredient I, Storage S WHERE I.name = S.name AND I.item LIKE '%burger%' GROUP BY I.name;
+Query 1: Whats the most expensive thing on the menu?
+SELECT Item_name, Price FROM MENU_ITEM WHERE Price = (Select MAX(Price) FROM MENU_ITEM);
 
-Query Results
-name	beef
-S.quantity / I.amount	7
-name	bun
-S.quantity / I.amount	3.5
-name	cheese
-S.quantity / I.amount	69.99999895691873
-name	lettuce
-S.quantity / I.amount	69.99999895691873
-name	onion
-S.quantity / I.amount	69.99999895691873
-name	tomato
-S.quantity / I.amount	69.99999895691873
+Query Results:
+Item_name Chicken & Waffles
+Price 15
 
-SELECT * FROM Sales WHERE cid IN (SELECT cid FROM Customer WHERE name = 'Tom Hiddleston') AND item LIKE '%shake%';
 
-date	2023-01-1
-cid	3
-server	2
-item	chocolate shake
+Query2: How Did Guy Fieri get to Flavortown?!
+SELECT Item_name FROM MENU_ITEM, MENU_ORDER WHERE Cid IN (SELECT Cid FROM CUSTOMER WHERE Fname = 'Guy'AND Lname = 'Fieri') AND MENU_ITEM.ItemID = MENU_ORDER.ItemID;
 
-SELECT SUM(price) FROM Menu WHERE item IN (SELECT item FROM Ingredient WHERE name IN (SELECT name FROM Storage WHERE quantity > 0));
+Query Results:
+Item_name   Irish Coffee
+Item_name   Chicken & Waffles
 
-SUM(price)	41
 
-SELECT I.name, SUM(I.amount) FROM Ingredient I GROUP BY I.name;
+Query3: Who served Martha Stewart 3 Mimosas?!
+SELECT Fname, Lname FROM EMPLOYEE, MENU_ORDER WHERE MENU_ORDER.Eid = EMPLOYEE.Eid AND MENU_ORDER.Cid = 'C4';
 
-name	beef
-SUM(I.amount)	6
-name	bun
-SUM(I.amount)	7
-name	cheese
-SUM(I.amount)	0.6000000163912773
-name	chicken
-SUM(I.amount)	1
-name	chocolate
-SUM(I.amount)	0.10000000149011612
-name	ice cream
-SUM(I.amount)	2
-name	lettuce
-SUM(I.amount)	1.6000000163912773
-name	milk
-SUM(I.amount)	2
-name	oil
-SUM(I.amount)	0.10000000149011612
-name	onion
-SUM(I.amount)	1.6000000163912773
-name	potato
-SUM(I.amount)	1
-name	tomato
-SUM(I.amount)	1.6000000163912773
-name	vanilla
-SUM(I.amount)	0.10000000149011612
+Query Results:
+Fname   Molly
+Lname   Managerface
 
-SELECT * FROM Storage WHERE spoil_date = (SELECT MIN(spoil_date) FROM Storage);
 
-name	beef
-quantity	7
-spoil_date	2023-01-31
-name	bun
-quantity	7
-spoil_date	2023-01-15
-name	cheese
-quantity	7
-spoil_date	2023-01-12
-name	chicken
-quantity	10
-spoil_date	2023-01-02
-name	chocolate
-quantity	9
-spoil_date	2023-01-11
-name	ice cream
-quantity	9
-spoil_date	2023-01-12
-name	lettuce
-quantity	7
-spoil_date	2023-01-12
-name	milk
-quantity	9
-spoil_date	2023-01-2
-name	oil
-quantity	8
-spoil_date	2023-01-1
-name	onion
-quantity	7
-spoil_date	2023-01-
-name	potato
-quantity	8
-spoil_date	2023-01-3
-name	tomato
-quantity	7
-spoil_date	2023-01-2
-name	vanilla
-quantity	10
-spoil_date	2023-01-1
+Query4: What are you menu items made of?
+SELECT Item_name, Ingredient_name FROM MENU_ITEM, INGREDIENT, MADE_OF WHERE MENU_ITEM.ItemID = MADE_OF.ItemID AND INGREDIENT.IngredientID = MADE_OF.IngredientID;
+
+Query Results:
+Item_name       Mimosa
+Ingredient_name Prosecco
+Ingredient_name OJ
+Item_name       Irish Coffee
+Ingredient_name Jameson
+Ingredient_name Coffee
+Ingredient_name Baileys
+Item_name       Chicken & Waffles
+Ingredient_name Chicken
+Ingredient_name Waffles
+Ingredient_name Syrup
+Item_name       Parfait
+Ingredient_name Yogurt
+Ingredient_name Granola
+Ingredient_name Strawberries
+Item_name       Breakfast Burrito
+Ingredient_name Eggs
+Ingredient_name Potato
+Ingredient_name Cheese
+Ingredient_name Onions
+Ingredient_name Torilla
+
+
+Query5: Which Ingredient Expires First?
+SELECT * FROM Ingredient WHERE Expiration = (SELECT MIN(Expiration) FROM Ingredient);
+
+Query Result:
+IngredientID    I6
+Expiration      2023-03-28
+Ingredient_name Chicken
+Count           10
